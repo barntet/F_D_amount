@@ -1,25 +1,36 @@
 import React from 'react';
-import Index from '@/container/Index/index';
-import About from '@/container/About/index';
-import TT from '@/container/About/tt';
-import ErrorPage from '@/components/error-page';
 import { createBrowserRouter } from 'react-router-dom';
+import ErrorPage from '@/components/error-page';
+import Home from '@/views/Home/index';
+import Data from '@/views/Data/index';
+import User from '@/views/User/index';
 
-const router = createBrowserRouter([
+const router = [
   {
     path: '/',
-    element: <Index />,
-    errorElement: <ErrorPage />,
+    // element: <Home />,
+    component: Home,
+    errorElement: ErrorPage,
   },
   {
+    path: '/data',
+    // element: <Data />,
+    component: Data,
+    errorElement: ErrorPage,
+  },
+  {
+    path: '/user',
+    component: User,
+    // element: <User />,
+  },
+];
+
+export default router;
+
+/** 
+ *  {
     path: '/about/*',
     element: <About />,
     errorElement: <ErrorPage />,
   },
-  {
-    path: 'tt',
-    element: <TT />,
-  },
-]);
-
-export default router;
+ */
