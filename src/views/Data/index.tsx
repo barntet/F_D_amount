@@ -1,3 +1,4 @@
+import CSS from './index.module.less';
 export default function Data() {
-  return <div>data</div>;
+  return <div className={CSS.data}>data</div>;
 }

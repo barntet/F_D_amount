@@ -25,6 +25,26 @@ const router = [
   },
 ];
 
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Home />,
+//     // component: Home,
+//     errorElement: ErrorPage,
+//   },
+//   {
+//     path: '/data',
+//     element: <Data />,
+//     // component: Data,
+//     errorElement: ErrorPage,
+//   },
+//   {
+//     path: '/user',
+//     // component: User,
+//     element: <User />,
+//   },
+// ]);
+
 export default router;
 
 /** 
