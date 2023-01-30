@@ -11,16 +11,18 @@ export class FetchObserver implements FetchObserver {
 
   private evt = new EventTarget();
 
-  onrequestprogress: ((this: FetchObserver, ev: ProgressEvent) => any) | null =
-    null;
+  onrequestprogress:
+    | ((this: FetchObserver, ev: ProgressEvent) => any)
+    | null = null;
 
-  onresponseprogress: ((this: FetchObserver, ev: ProgressEvent) => any) | null =
-    null;
+  onresponseprogress:
+    | ((this: FetchObserver, ev: ProgressEvent) => any)
+    | null = null;
 
   addEventListener<K extends keyof FetchObserverEventMap>(
     type: K,
     listener: FetchObserverListener<K>,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void {
     return this.evt.addEventListener(type, listener as EventListener, options);
   }
@@ -28,7 +30,7 @@ export class FetchObserver implements FetchObserver {
   removeEventListener<K extends keyof FetchObserverEventMap>(
     type: K,
     listener: FetchObserverListener<K>,
-    options?: boolean | EventListenerOptions
+    options?: boolean | EventListenerOptions,
   ): void {
     this.evt.removeEventListener(type, listener as EventListener, options);
   }

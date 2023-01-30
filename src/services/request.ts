@@ -1,4 +1,6 @@
-import baseRequest from './request/index';
+import { Toast } from 'antd-mobile'
+import baseRequest, { RequestOptions } from './request/index';
+import { createModuleUrl } from '../utils/createModuleUrl'
 
 let customHeaders = {};
 
@@ -13,10 +15,12 @@ export const serHeaders = headers => {
   };
 };
 
-export default async function request(relativeUrl, options = {}) {
+export default async function request(relativeUrl: string, options: RequestOptions = {}): Promise<any> {
   // const absoluteUrl = relativeUrl.startWith('/') ? relativeUrl :
-  const absoluteUrl = relativeUrl as string;
-  const headers = { ...customHeaders };
+  const absoluteUrl = relativeUrl.startsWith('/')
+    ? createModuleUrl('', 'http:') + relativeUrl
+    : relativeUrl;
+  const headers: any = { ...customHeaders };
   if (options.auth !== false) {
     headers['X-Access-Token'] = localStorage['X-Access-Token'];
   }
@@ -24,6 +28,7 @@ export default async function request(relativeUrl, options = {}) {
     ...options,
     headers: { ...headers, ...options.headers },
   }).catch(error => {
+    Toast.show(error.msg);
     throw error;
   });
 }

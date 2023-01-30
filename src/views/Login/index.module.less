@@ -1,0 +1,87 @@
+.auth {
+  min-height: 100vh;
+  background-image: linear-gradient(217deg, #6fb9f8, #3daaf85e, #49d3fc1a, #3fd3ff00);
+
+  .head {
+    height: 200px;
+    background: url('//s.yezgea02.com/1616032174786/cryptocurrency.png') no-repeat center;
+    background-size: 120%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    img {
+      width: 34px;
+      margin: 15px 0 0 15px;
+    }
+  }
+
+  .tab {
+    color: #597fe7;
+    padding: 20px;
+
+    >span {
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: bold;
+
+      &.active {
+        font-size: 20px;
+        border-bottom: 2PX solid #597fe7;
+        padding-bottom: 6px;
+      }
+    }
+  }
+
+  .form {
+    padding: 0 8px;
+
+    :global(.adm-list) {
+      --border-top: none;
+      --border-bottom: none;
+    }
+
+    :global(.adm-list-body) {
+      background-color: transparent;
+    }
+
+    :global(.adm-list-item) {
+      background-color: transparent;
+    }
+
+    :global(.adm-list-item-content) {
+      border: none;
+    }
+
+    :global(.adm-input) {
+      background-color: #fff;
+    }
+
+    .verify {
+      :global(.adm-form-item-child-inner) {
+        display: flex;
+        align-items: center;
+      }
+
+      :global(.sc-bcXHqe.iPtRTz.react-captcha) {
+        margin-left: 10px;
+        height: 32px;
+      }
+    }
+
+  }
+
+  .operation {
+    padding: 20px;
+
+    .agree {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      label {
+        // margin-left: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}

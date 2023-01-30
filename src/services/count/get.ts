@@ -7,6 +7,6 @@ export function getData(param: any) {
   // );
   return request(
     `http://127.0.0.1:7001/api/bill/list`,
-    { method: 'GET', headers: { auth: false, authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ6b3ZpIiwiZXhwIjoxNjc0MTEzNjMxLCJpYXQiOjE2NzQwMjcyMzF9.fpY3AJbTnytvmYuN_tsSD5jthKRHGJjV8Rb0vIW_TOk' } }
+    { method: 'GET', auth: false, headers: { authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ6b3ZpIiwiZXhwIjoxNjc0MTEzNjMxLCJpYXQiOjE2NzQwMjcyMzF9.fpY3AJbTnytvmYuN_tsSD5jthKRHGJjV8Rb0vIW_TOk' } }
   );
 }

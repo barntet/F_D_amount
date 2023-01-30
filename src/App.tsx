@@ -20,7 +20,9 @@ export default function App() {
               />
             ))}
           </Routes>
-          <NavBar showNav={true} />
+          {!['/login', 'register'].includes(location.pathname) ? (
+            <NavBar />
+          ) : null}
         </div>
       </BrowserRouter>
     </ConfigProvider>

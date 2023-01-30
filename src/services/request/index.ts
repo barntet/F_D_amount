@@ -11,16 +11,17 @@ export interface RequestOptions extends Omit<RequestInit, 'body' | 'method'> {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   parseResponse?: (res: Response) => RequestResult<any>;
   observe?: FetchObserverCallback;
-  userBeacon?: boolean;
+  useBeacon?: boolean;
 }
+
 /**
  * @name 请求封装
  * @param originUrl 请求地址
  * @param options 请求参数
- * */
+ */
 export default function request<T>(
   originUrl: string,
-  options: RequestOptions
+  options?: RequestOptions,
 ): Promise<T> {
   const mixedOptions: RequestOptions = {
     method: 'GET',
@@ -35,7 +36,6 @@ export default function request<T>(
     originUrl += flag + stringify(mixedOptions.body);
     delete mixedOptions.body;
   }
-
   if (mixedOptions.body instanceof FormData) {
     delete mixedOptions.headers!['Content-Type'];
   } else if (mixedOptions.headers!['Content-Type'] === 'application/json') {
@@ -48,15 +48,16 @@ export default function request<T>(
   ) {
     const result = navigator.sendBeacon(
       originUrl,
-      mixedOptions.body as BodyInit
+      mixedOptions.body as BodyInit,
     );
     if (!result) return Promise.reject(new Error('network error'));
+    return (Promise.resolve(true) as unknown) as Promise<T>;
   } else {
     return fetch(originUrl, mixedOptions as RequestInit)
       .then(res =>
         mixedOptions.parseResponse
           ? mixedOptions.parseResponse(res)
-          : res.json()
+          : res.json(),
       )
       .then(data => processData(data));
   }
@@ -74,6 +75,7 @@ function has(obj: object, key: string) {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
+/* istanbul ignore next */
 function processData<T>(result?: RequestResult<T>) {
   if (!result) {
     throw result;
