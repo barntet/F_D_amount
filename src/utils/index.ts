@@ -48,3 +48,34 @@ export const typeMap = {
     icon: 'qita'
   }
 }
+
+
+export const REFRESH_STATE = {
+  // 普通
+  normal: 0,
+  // 下拉刷新
+  pull: 1,
+  // 释放立即刷新
+  drop: 2,
+  // 加载中
+  loading: 3,
+  // 加载成功
+  success: 4,
+  // 加载失败
+  failure: 5
+}
+
+export const LOAD_STATE = {
+  // 普通
+  normal: 0,
+  // 中止
+  abort: 1,
+  // 加载中
+  loading: 2,
+  // 加载成功
+  success: 3,
+  // 加载失败
+  failure: 4,
+  // 加载完成
+  complete: 5
+}
