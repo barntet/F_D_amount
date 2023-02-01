@@ -1,29 +1,29 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { TabBar } from 'antd-mobile';
-import { AppOutline, PieOutline, UserOutline } from 'antd-mobile-icons';
+import { TabBar } from 'zarm';
+import CustomIcon from '../icon';
 import { useNavigate, useLocation } from 'react-router-dom';
 import CSS from './index.module.less';
 
 const tabs = [
   {
     key: '/',
-    icon: AppOutline,
+    icon: 'zhangdan',
     title: '账单',
   },
   {
     key: '/data',
-    icon: PieOutline,
+    icon: 'tongji',
     title: '统计',
   },
   {
     key: '/user',
-    icon: UserOutline,
+    icon: 'wode',
     title: '我的',
   },
 ];
 
-const NavBar = () => {
+const NavBar = ({ showNav }: { showNav: boolean }) => {
   const location = useLocation();
   const [activeKey, setActiveKey] = useState(location.pathname || '/');
   const navigateTo = useNavigate();
@@ -33,9 +33,18 @@ const NavBar = () => {
     navigateTo(path);
   };
   return (
-    <TabBar className={CSS.tab} activeKey={activeKey} onChange={changeTab}>
+    <TabBar
+      className={CSS.tab}
+      visible={showNav}
+      activeKey={activeKey}
+      onChange={changeTab}
+    >
       {tabs.map(tab => (
-        <TabBar.Item key={tab.key} icon={<tab.icon />} title={tab.title} />
+        <TabBar.Item
+          key={tab.key}
+          icon={<CustomIcon type={tab.icon} />}
+          title={tab.title}
+        />
       ))}
     </TabBar>
   );

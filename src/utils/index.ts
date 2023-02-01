@@ -51,31 +51,19 @@ export const typeMap = {
 
 
 export const REFRESH_STATE = {
-  // 普通
-  normal: 0,
-  // 下拉刷新
-  pull: 1,
-  // 释放立即刷新
-  drop: 2,
-  // 加载中
-  loading: 3,
-  // 加载成功
-  success: 4,
-  // 加载失败
-  failure: 5
-}
+  normal: 0, // 普通
+  pull: 1, // 下拉刷新（未满足刷新条件）
+  drop: 2, // 释放立即刷新（满足刷新条件）
+  loading: 3, // 加载中
+  success: 4, // 加载成功
+  failure: 5, // 加载失败
+};
 
 export const LOAD_STATE = {
-  // 普通
-  normal: 0,
-  // 中止
-  abort: 1,
-  // 加载中
-  loading: 2,
-  // 加载成功
-  success: 3,
-  // 加载失败
-  failure: 4,
-  // 加载完成
-  complete: 5
-}
+  normal: 0, // 普通
+  abort: 1, // 中止
+  loading: 2, // 加载中
+  success: 3, // 加载成功
+  failure: 4, // 加载失败
+  complete: 5, // 加载完成（无新数据）
+};

@@ -1,4 +1,4 @@
-import { Toast } from 'antd-mobile'
+import { Toast } from 'zarm'
 import baseRequest, { RequestOptions } from './request/index';
 import { createModuleUrl } from '../utils/createModuleUrl'
 
