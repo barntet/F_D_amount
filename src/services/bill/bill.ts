@@ -22,3 +22,13 @@ export function addBill(params: any) {
     body: params
   })
 }
+
+
+export function getBillDetail(id: number) {
+  return request(`${serviceName}/detail?id=${id}`)
+}
+
+export function deleteBill(id: number) {
+  return request(`${serviceName}/delete`, { method: 'POST', body: { id } })
+}
+

@@ -3,6 +3,7 @@ import Home from '@/views/Home/index';
 import Data from '@/views/Data/index';
 import User from '@/views/User/index';
 import Login from '@/views/Login/index';
+import Detail from '@/views/Detail';
 
 const router = [
   {
@@ -22,6 +23,10 @@ const router = [
   {
     path: '/login',
     component: Login,
+  },
+  {
+    path: '/detail',
+    component: Detail,
   },
 ];
 

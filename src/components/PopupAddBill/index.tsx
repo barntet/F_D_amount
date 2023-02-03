@@ -33,7 +33,7 @@ const PopupAddBill = forwardRef(
           name: detail.type_name,
         });
         setShowRemark(detail.remark);
-        setAmount(detail.amount);
+        setAmount(String(detail.amount));
         setDate(dayjs(Number(detail.date)).$d);
       }
     }, [detail]);
@@ -87,6 +87,7 @@ const PopupAddBill = forwardRef(
     };
 
     const handleMoney = (value: any) => {
+      console.log(value, amount);
       value = String(value);
 
       if (value === 'close') return;
@@ -128,7 +129,6 @@ const PopupAddBill = forwardRef(
       };
       if (id) {
         params.id = id;
-
         await updateBill(params);
         Toast.show('修改成功');
       } else {
