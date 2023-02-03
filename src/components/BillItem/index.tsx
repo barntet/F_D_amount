@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { Cell, Icon } from 'zarm';
+import { Cell } from 'zarm';
 import { typeMap } from '@/utils';
 import CustomIcon from '@/components/icon/index';
 
@@ -73,49 +73,6 @@ const BillItem = ({ bill }: { bill: any }) => {
             }
           ></Cell>
         ))}
-      {/* <List
-        header={
-          <div className={CSS.headerDate}>
-            <div className={CSS.date}>
-              {dayjs(bill.date).format('YYYY-MM-DD')}
-            </div>
-            <div className={CSS.money}>
-              <span>
-                <img
-                  src="//s.yezgea02.com/1615953405599/zhi%402x.png"
-                  alt="支"
-                />
-                <span>￥ {expense.toFixed(2)}</span>
-              </span>
-              <span>
-                <img
-                  src="//s.yezgea02.com/1615953405599/shou%402x.png"
-                  alt="收"
-                />
-                <span>￥{income.toFixed(2)}</span>
-              </span>
-            </div>
-          </div>
-        }
-        mode="card"
-      >
-        {bill &&
-          bill.bills.map((item: any) => (
-            <List.Item
-              className={CSS.bill}
-              key={item.id}
-              onClick={() => goToDetail(item)}
-              title={item.type_name}
-              prefix={<XIcon type={typeMap[item.type_id]?.icon || null} />}
-              extra={
-                item.pay_type === 2 ? `+${item.amount}` : `-${item.amount}`
-              }
-            >
-              {dayjs(Number(item.date)).format('HH:mm')}
-              {item.remark ? ` | ${item.remark}` : ''}
-            </List.Item>
-          ))}
-      </List> */}
     </div>
   );
 };

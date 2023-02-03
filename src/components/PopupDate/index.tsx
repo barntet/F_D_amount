@@ -1,23 +1,17 @@
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Popup, DatePicker } from 'zarm';
 import dayjs from 'dayjs';
-
-import CSS from './index.module.less';
 
 const PopupDate = forwardRef(
   ({ onSelect, mode = 'date' }: { onSelect: any; mode: string }, ref: any) => {
     const [show, setShow] = useState(false);
     const [now, setNow] = useState(new Date());
 
-    const choseMonth = (item: any) => {
+    const choseDate = (item: any) => {
       setNow(item);
       setShow(false);
-      if (mode === 'month') {
-        onSelect(dayjs(item).format('YYYY-MM'));
-      } else if (mode === 'date') {
-        onSelect(dayjs(item).format('YYYY-MM-DD'));
-      }
+      onSelect(dayjs(item).valueOf());
     };
 
     if (ref) {
@@ -44,7 +38,7 @@ const PopupDate = forwardRef(
             visible={show}
             value={now}
             mode={mode}
-            onOk={choseMonth}
+            onOk={choseDate}
             onCancel={() => setShow(false)}
           />
         </div>

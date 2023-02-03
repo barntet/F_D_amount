@@ -7,7 +7,7 @@ import { getType } from '@/services/type/type';
 import CSS from './index.module.less';
 
 const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [active, setActive] = useState('all');
   const [expense, setExpense] = useState([]);
   const [income, setIncome] = useState([]);
