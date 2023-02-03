@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import dayjs from 'dayjs';
 import { Icon, Pull } from 'zarm';
 import { REFRESH_STATE, LOAD_STATE } from '@/utils';
-import { getBillData } from '../../services/bill/bill';
+import { getBillList } from '../../services/bill/bill';
 import BillItem from '../../components/BillItem';
 import PopupType from '../../components/PopupType';
 import PopupDate from '../../components/PopupDate';
@@ -26,13 +26,13 @@ const Home = () => {
   const [income, setIncome] = useState(0);
 
   useEffect(() => {
-    getBillList(); // 初始化
+    getBillData(); // 初始化
   }, [page, currentSelect, currentTime]);
 
   // 获取账单方法
-  const getBillList = async () => {
+  const getBillData = async () => {
     console.log(1);
-    const { list, totalPage, totalExpense, totalIncome } = await getBillData({
+    const { list, totalPage, totalExpense, totalIncome } = await getBillList({
       page,
       date: currentTime,
       type_id: currentSelect.id || 'all',
@@ -60,7 +60,7 @@ const Home = () => {
     if (page !== 1) {
       setPage(1);
     } else {
-      getBillList();
+      getBillData();
     }
   };
 

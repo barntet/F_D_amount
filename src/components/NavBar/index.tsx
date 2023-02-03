@@ -29,6 +29,7 @@ const NavBar = ({ showNav }: { showNav: boolean }) => {
   const navigateTo = useNavigate();
 
   const changeTab = (path: any) => {
+    console.log(path);
     setActiveKey(path);
     navigateTo(path);
   };
@@ -42,6 +43,7 @@ const NavBar = ({ showNav }: { showNav: boolean }) => {
       {tabs.map(tab => (
         <TabBar.Item
           key={tab.key}
+          itemKey={tab.key}
           icon={<CustomIcon type={tab.icon} />}
           title={tab.title}
         />

@@ -60,10 +60,9 @@ const BillItem = ({ bill }: { bill: any }) => {
             title={
               <>
                 <CustomIcon
-                  className={CSS.itemIcon}
                   type={item.type_id ? typeMap[item.type_id].icon : null}
                 />
-                <span>{item.type_name}</span>
+                <span className={CSS.typeName}>{item.type_name}</span>
               </>
             }
             description={
