@@ -36,7 +36,7 @@ const Login = () => {
           password,
         });
         localStorage.setItem('X-Access-Token', token);
-        window.location.href = '/';
+        window.location.href = '/'; // 如果只是用navigateTo 跳转页面的话，页面不会被刷新
       } else {
         if (!verify) {
           Toast.show('请输入验证码');
