@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { Cell } from 'zarm';
-import { typeMap } from '@/utils';
-import CustomIcon from '@/components/icon/index';
+import { typeMap } from '../../utils';
+import CustomIcon from '../icon/index';
 
 import CSS from './index.module.less';
+
+const typeMapProp = {} as Record<number | string, any>;
 
 const BillItem = ({ bill }: { bill: any }) => {
   const [income, setIncome] = useState(0);
@@ -60,7 +62,11 @@ const BillItem = ({ bill }: { bill: any }) => {
             title={
               <>
                 <CustomIcon
-                  type={item.type_id ? typeMap[item.type_id].icon : null}
+                  type={
+                    item.type_id
+                      ? typeMap[item.type_id as keyof typeof typeMapProp].icon
+                      : null
+                  }
                 />
                 <span className={CSS.typeName}>{item.type_name}</span>
               </>

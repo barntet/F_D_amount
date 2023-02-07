@@ -4,15 +4,15 @@ import cx from 'classnames';
 import { Icon, Progress } from 'zarm';
 
 import CSS from './index.module.less';
-import { getBillData } from '@/services/bill/bill';
+import { getBillData } from '../../services/bill/bill';
 import PopupDate from '../../components/PopupDate';
-import CustomIcon from '@/components/Icon';
-import { typeMap } from '@/utils';
+import CustomIcon from '../../components/icon';
+import { typeMap } from '../../utils';
 
 let proportionChart: any = null; // 用于存放echart初始化返回的实例
 
 const Data = () => {
-  const monthRef = useRef();
+  const monthRef = useRef() as any;
   const [currentMonth, setCurrentMonth] = useState(dayjs().valueOf());
   const [totalType, setTotalType] = useState('income');
   const [expense, setExpense] = useState(0);
@@ -49,10 +49,14 @@ const Data = () => {
   };
 
   const setPieChart = (data: []) => {
-    if (window.echarts) {
+    if (!window.echarts) return;
+    const echar = (window ? window.echarts : null) as any;
+    if (window && echar) {
       console.log(data);
       // 初始化 饼图返回实例
-      proportionChart = echarts.init(document.getElementById('proportion'));
+      proportionChart = window.echarts.init(
+        document.getElementById('proportion')
+      );
       proportionChart.setOption({
         tooltip: {
           trigger: 'item',
@@ -169,7 +173,7 @@ const Data = () => {
                         (item.number /
                           Number(totalType == 'expense' ? expense : income)) *
                           100
-                      ).toFixed(2)}
+                      )}
                       theme="primary"
                     />
                   </div>

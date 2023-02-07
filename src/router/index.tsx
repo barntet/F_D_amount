@@ -1,12 +1,12 @@
-import ErrorPage from '@/components/error-page';
-import Home from '@/views/Home/index';
-import Data from '@/views/Data/index';
-import User from '@/views/User/index';
-import Login from '@/views/Login/index';
-import Detail from '@/views/Detail';
-import UserInfo from '@/views/UserInfo';
-import Account from '@/views/Account';
-import About from '@/views/About';
+import ErrorPage from '../components/error-page';
+import Home from '../views/Home/index';
+import Data from '../views/Data/index';
+import User from '../views/User/index';
+import Login from '../views/Login/index';
+import Detail from '../views/Detail';
+import UserInfo from '../views/UserInfo';
+import Account from '../views/Account';
+import About from '../views/About';
 
 const router = [
   {

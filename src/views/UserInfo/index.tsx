@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { FilePicker, Button, Toast, Input } from 'zarm';
 
 import CSS from './index.module.less';
-import { getInfo, editInfo } from '@/services/user/user';
-import { upload } from '@/services/upload/upload';
-import Header from '@/components/Header';
+import { getInfo, editInfo } from '../../services/user/user';
+import { upload } from '../../services/upload/upload';
+import Header from '../../components/Header';
 import { imgUrlTrans } from '../../utils';
 
 const UserInfo = () => {

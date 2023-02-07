@@ -2,8 +2,8 @@ import { createForm } from 'rc-form';
 import { Toast, Cell, Input, Button } from 'zarm';
 
 import CSS from './index.module.less';
-import { modifyPass } from '@/services/user/user';
-import Header from '@/components/Header';
+import { modifyPass } from '../../services/user/user';
+import Header from '../../components/Header';
 
 const Account = (props: any) => {
   console.log(props);

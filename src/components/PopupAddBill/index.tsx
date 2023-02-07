@@ -8,8 +8,8 @@ import CSS from './index.module.less';
 import PopupDate from '../PopupDate';
 import CustomIcon from '../icon';
 import { typeMap } from '../../utils';
-import { getType } from '@/services/type/type';
-import { addBill, updateBill } from '@/services/bill/bill';
+import { getType } from '../../services/type/type';
+import { addBill, updateBill } from '../../services/bill/bill';
 
 const PopupAddBill = forwardRef(
   ({ detail = {}, onReload }: { detail: any; onReload: any }, ref: any) => {

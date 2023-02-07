@@ -6,25 +6,25 @@ import cx from 'classnames';
 import { Toast, Modal } from 'zarm';
 
 import CSS from './index.module.less';
-import { getBillDetail, deleteBill } from '@/services/bill/bill';
-import { typeMap } from '@/utils';
-import Header from '@/components/Header';
-import CustomIcon from '@/components/Icon';
-import PopupAddBill from '@/components/PopupAddBill';
+import { getBillDetail, deleteBill } from '../../services/bill/bill';
+import { typeMap } from '../../utils';
+import Header from '../../components/Header';
+import CustomIcon from '../../components/icon';
+import PopupAddBill from '../../components/PopupAddBill';
 
 const Detail = () => {
   const location = useLocation();
   const { id } = qs.parse(location.search);
   const [detail, setDetail] = useState({}) as any;
   const navigateTo = useNavigate();
-  const editRef = useRef();
+  const editRef = useRef() as any;
 
   useEffect(() => {
     getDetail();
   }, []);
 
   const getDetail = async () => {
-    const data = await getBillDetail(id);
+    const data = await getBillDetail(Number(id));
     setDetail(data);
   };
 
@@ -33,7 +33,7 @@ const Detail = () => {
       title: '删除',
       content: '确定删除？',
       onOk: async () => {
-        await deleteBill(id);
+        await deleteBill(Number(id));
         Toast.show('删除成功');
         navigateTo(-1);
       },

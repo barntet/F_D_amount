@@ -4,11 +4,11 @@ import Captcha from 'react-captcha-code';
 import cx from 'classnames';
 
 import CSS from './index.module.less';
-import { register, login } from '@/services/user/user';
-import CustomIcon from '@/components/Icon/index';
+import { register, login } from '../../services/user/user';
+import CustomIcon from '../../components/icon/index';
 
 const Login = () => {
-  const captchaRef = useRef();
+  const captchaRef = useRef() as any;
   const [type, setType] = useState('login'); // 登录注册类型
   const [captcha, setCaptcha] = useState(''); // 验证码变化后存储值
   const [username, setUsername] = useState(''); // 账号
@@ -16,7 +16,7 @@ const Login = () => {
   const [verify, setVerify] = useState(''); // 验证码
 
   //  验证码变化，回调方法
-  const handleChange = useCallback(captcha => {
+  const handleChange = useCallback((captcha: any) => {
     setCaptcha(captcha);
   }, []);
 
@@ -53,7 +53,7 @@ const Login = () => {
         Toast.show('注册成功');
         setType('login');
       }
-    } catch (err) {
+    } catch (err: any) {
       Toast.show(err.msg);
     }
   };
@@ -85,7 +85,7 @@ const Login = () => {
             clearable
             type="text"
             placeholder="请输入账号"
-            onChange={value => setUsername(value)}
+            onChange={(value: any) => setUsername(value)}
           />
         </Cell>
         <Cell icon={<CustomIcon type="mima" />}>
@@ -93,7 +93,7 @@ const Login = () => {
             clearable
             type="password"
             placeholder="请输入密码"
-            onChange={value => setPassword(value)}
+            onChange={(value: any) => setPassword(value)}
           />
         </Cell>
         {type == 'register' ? (
@@ -102,7 +102,7 @@ const Login = () => {
               clearable
               type="text"
               placeholder="请输入验证码"
-              onChange={value => setVerify(value)}
+              onChange={(value: any) => setVerify(value)}
             />
             <Captcha ref={captchaRef} charNum={4} onChange={handleChange} />
           </Cell>

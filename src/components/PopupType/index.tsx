@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Popup, Icon } from 'zarm';
 import cx from 'classnames';
-import { getType } from '@/services/type/type';
+import { getType } from '../../services/type/type';
 
 import CSS from './index.module.less';
 

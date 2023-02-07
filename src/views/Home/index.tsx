@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import dayjs from 'dayjs';
 import { Icon, Pull } from 'zarm';
-import { REFRESH_STATE, LOAD_STATE } from '@/utils';
+import { REFRESH_STATE, LOAD_STATE } from '../../utils';
 import { getBillList } from '../../services/bill/bill';
 import BillItem from '../../components/BillItem';
 import PopupType from '../../components/PopupType';
 import PopupDate from '../../components/PopupDate';
 import PopupAddBill from '../../components/PopupAddBill';
 import CSS from './index.module.less';
-import CustomIcon from '@/components/icon/index';
+import CustomIcon from '../../components/icon/index';
 
 const Home = () => {
   const [data, setData] = useState([]);

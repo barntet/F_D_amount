@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Cell, Button } from 'zarm';
 
 import CSS from './index.module.less';
-import { getInfo } from '@/services/user/user';
+import { getInfo } from '../../services/user/user';
 
 const tabs = [
   {
