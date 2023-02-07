@@ -7,11 +7,12 @@ module.exports = {
   ],
   deploy: {
     production: {
+      key: 'C:/Users/1/.ssh/id_rsa.pub',
       user: 'root',
-      host: '106.52.168.152',
+      host: ['106.52.158.163'],
       ref: 'origin/master',
       repo: 'git@github.com:barntet/F_D_amount.git',
-      path: '/home/ubuntu/www/F_D_amount',
+      path: '~/www/F_D_amount',
       'post-deploy':
         'git reset --hard && git checkout master && git pull && yarn --production=false && pm2 startOrReload ecosystem.config.js', // -production=false 下载全量包
       env: {
