@@ -128,7 +128,9 @@ const Data = () => {
                 [CSS.expense]: totalType == 'expense',
                 [CSS.income]: totalType == 'income',
             })}>
-                      <CustomIcon type={item.type_id ? typeMap[item.type_id].icon : 1}/>
+                      <CustomIcon type={item.type_id
+                ? typeMap[item.type_id].icon
+                : ''}/>
                     </span>
                     <span className={CSS.name}>{item.type_name}</span>
                   </div>

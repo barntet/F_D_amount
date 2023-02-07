@@ -42,7 +42,9 @@ const Detail = () => {
             [CSS.expense]: detail.pay_type == 1,
             [CSS.income]: detail.pay_type == 2,
         }, CSS.iconfont)}>
-            <CustomIcon type={detail.type_id ? typeMap[detail.type_id].icon : 1}/>
+            <CustomIcon type={detail.type_id
+            ? typeMap[detail.type_id].icon
+            : ''}/>
           </span>
           <span>{detail.type_name || ''}</span>
         </div>

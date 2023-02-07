@@ -16,8 +16,8 @@ const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
     (async () => {
       const list = await getType();
       console.log(list);
-      setExpense(list.filter((i: any) => i.type === 2));
-      setIncome(list.filter((i: any) => i.type === 1));
+      setExpense(list.filter((i: any) => i.type === 2) as []);
+      setIncome(list.filter((i: any) => i.type === 1) as []);
     })();
   }, []);
 
@@ -40,13 +40,19 @@ const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
   };
 
   return (
-    <Popup
-      visible={show}
-      direction="bottom"
-      onMaskClick={() => setShow(false)}
-      destroy={false}
-      mountContainer={() => document.body}
-    >
+    <Popup visible={show}
+    direction="bottom"
+    animationType="fade"
+    animationDuration={200}
+    width={100}
+    mask={true}
+    maskType="normal"
+    destroy={false}
+    afterOpen={() => {}}
+    afterClose={() => {}}
+    onMaskClick={() => setShow(false)}
+    onEsc={() => {}}
+    mountContainer={() => document.body}>
       <div className={CSS.popupType}>
         <div className={CSS.header}>
           请选择类型
@@ -58,7 +64,10 @@ const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
         </div>
         <div className={CSS.content}>
           <div
-            className={cx({ [CSS.all]: true, [CSS.active]: active === 'all' })}
+            className={cx({
+              [CSS.all]: true,
+              [CSS.active]: active === 'all',
+            })}
             onClick={() => choseType({ id: 'all' })}
           >
             全部类型
@@ -68,7 +77,7 @@ const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
             {expense.map((item: any, index) => (
               <p
                 className={cx({ [CSS.active]: active === item.id })}
-                key={index}
+                key={item.id}
                 onClick={() => choseType(item)}
               >
                 {item.name}
@@ -80,7 +89,7 @@ const PopupType = forwardRef(({ onSelect }: { onSelect: any }, ref: any) => {
             {income.map((item: any, index) => (
               <p
                 className={cx({ [CSS.active]: active === item.id })}
-                key={index}
+                key={item.id}
                 onClick={() => choseType(item)}
               >
                 {item.name}

@@ -156,7 +156,11 @@ const Data = () => {
                       })}
                     >
                       <CustomIcon
-                        type={item.type_id ? typeMap[item.type_id].icon : 1}
+                        type={
+                          item.type_id
+                            ? typeMap[item.type_id as keyof typeof typeMap].icon
+                            : ''
+                        }
                       />
                     </span>
                     <span className={CSS.name}>{item.type_name}</span>

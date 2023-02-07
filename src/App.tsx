@@ -17,7 +17,7 @@ const App = () => {
   }, [pathname]); // [] 内的参数若是变化，便会执行上述回调函数=
 
   return (
-    <ConfigProvider locale={zhCN} primaryColor={'#007fff'}>
+    <ConfigProvider>
       <>
         <Routes>
           {router.map(route => (

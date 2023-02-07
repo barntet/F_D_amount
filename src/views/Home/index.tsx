@@ -149,7 +149,7 @@ const Home = () => {
       </div>
       <PopupType ref={typeRef} onSelect={select} />
       <PopupDate ref={monthRef} mode="month" onSelect={selectMonth} />
-      <PopupAddBill ref={addRef} onReload={refreshData} />
+      <PopupAddBill ref={addRef} onReload={refreshData} detail={{}} />
     </div>
   );
 };

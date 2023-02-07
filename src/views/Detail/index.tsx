@@ -55,7 +55,11 @@ const Detail = () => {
             )}
           >
             <CustomIcon
-              type={detail.type_id ? typeMap[detail.type_id].icon : 1}
+              type={
+                detail.type_id
+                  ? typeMap[detail.type_id as keyof typeof typeMap].icon
+                  : ''
+              }
             />
           </span>
           <span>{detail.type_name || ''}</span>

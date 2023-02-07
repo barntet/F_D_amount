@@ -43,7 +43,7 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
         setExpense(_expense);
         setIncome(_income);
         if (!id) {
-            setCurrentType(_expense[0]);
+            setCurrentType((Array.isArray(_expense) && _expense[0]) || {});
         }
     };
     if (ref) {

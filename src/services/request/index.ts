@@ -12,6 +12,7 @@ export interface RequestOptions extends Omit<RequestInit, 'body' | 'method'> {
   parseResponse?: (res: Response) => RequestResult<any>;
   observe?: FetchObserverCallback;
   useBeacon?: boolean;
+  auth?: boolean
 }
 
 /**

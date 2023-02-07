@@ -8,7 +8,7 @@ let customHeaders = {};
  * @name 批量设置header
  * @param { Record<string, string>} headers
  */
-export const serHeaders = headers => {
+export const serHeaders = (headers: Record<string, string>) => {
   customHeaders = {
     ...customHeaders,
     ...headers,

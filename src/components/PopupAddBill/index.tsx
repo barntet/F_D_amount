@@ -17,7 +17,7 @@ const PopupAddBill = forwardRef(
     const [show, setShow] = useState(false);
     const [payType, setPayType] = useState('expense');
     const [date, setDate] = useState(new Date());
-    const dateRef = useRef();
+    const dateRef = useRef() as any;
     const [showRemark, setShowRemark] = useState(false);
     const [amount, setAmount] = useState('');
     const [currentType, setCurrentType] = useState({});
@@ -44,13 +44,15 @@ const PopupAddBill = forwardRef(
 
     const getList = async () => {
       const list = await getType();
-      const _expense = list.filter((i: any) => i.type === 1);
-      const _income = list.filter((i: any) => i.type === 2);
+      const _expense = list.filter((i: any) => i.type === 1) as [];
+      const _income = list.filter((i: any) => i.type === 2) as [];
       setExpense(_expense);
       setIncome(_income);
 
       if (!id) {
-        setCurrentType(_expense[0]);
+        setCurrentType(
+          (Array.isArray(_expense) && _expense[0 as number]) || {}
+        );
       }
     };
 
