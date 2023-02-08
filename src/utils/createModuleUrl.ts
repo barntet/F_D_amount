@@ -4,14 +4,14 @@ let prefix = '';
 //   .slice(-2)
 //   .join('.');
 
-let host = 'http://127.0.0.1:5173/'
+let host = 'http://127.0.0.1:7001'
 
 // 线上环境去除域名环境前缀
 if (import.meta.env.MODE !== 'production') {
   prefix = import.meta.env.VITE_ENV + '.';
 }
 // 本地调试使用env文件中的host
-if (import.meta.env.MODE !== 'production') {
+if (import.meta.env.MODE === 'production') {
   host = import.meta.env.VITE_HOST || host;
 }
 
