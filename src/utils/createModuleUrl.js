@@ -16,6 +16,7 @@ if (import.meta.env.MODE !== 'production') {
  * @param { string } module
  */
 export function createModuleUrl(module, protocol = location.protocol) {
+    console.log(protocol, host);
     // return `${protocol}//${prefix}${module}.${host}`;
     return `${protocol}//${host}`;
 }

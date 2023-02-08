@@ -5,9 +5,10 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite --mode development",
+    "dev:production": "vite --mode production",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "build:release": "vite build --mode release"
+    "build:production": "vite build --mode production"
   },
   "dependencies": {
     "@types/qs": "^6.9.7",

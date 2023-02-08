@@ -1,8 +1,10 @@
 let prefix = '';
-let host = location.host
-  .split('.')
-  .slice(-2)
-  .join('.');
+// let host = location.host
+//   .split('.')
+//   .slice(-2)
+//   .join('.');
+
+let host = 'http://127.0.0.1:5173/'
 
 // 线上环境去除域名环境前缀
 if (import.meta.env.MODE !== 'production') {
