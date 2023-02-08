@@ -13,8 +13,9 @@ module.exports = {
       ref: 'origin/master',
       repo: 'https://github.com/barntet/F_D_amount.git',
       path: '/home/ubuntu/www/F_D_amount',
-      'post-deploy':
-        'git reset --hard && git checkout master && git pull && yarn --production=false && pm2 startOrRestart ecosystem.json --env production', // -production=false 下载全量包
+      // 'post-deploy':
+      //   'git reset --hard && git checkout master && git pull && yarn --production=false && pm2 startOrRestart ecosystem.json --env production', // -production=false 下载全量包
+      'post-deploy': 'pm2 startOrRestart ecosystem.json --env production',
       env: {
         NODE_ENV: 'production',
       },
