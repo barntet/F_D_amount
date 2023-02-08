@@ -1,8 +1,9 @@
 let prefix = '';
-let host = location.host
-    .split('.')
-    .slice(-2)
-    .join('.');
+// let host = location.host
+//   .split('.')
+//   .slice(-2)
+//   .join('.');
+let host = 'http://127.0.0.1:5173/';
 // 线上环境去除域名环境前缀
 if (import.meta.env.MODE !== 'production') {
     prefix = import.meta.env.VITE_ENV + '.';
@@ -16,7 +17,6 @@ if (import.meta.env.MODE !== 'production') {
  * @param { string } module
  */
 export function createModuleUrl(module, protocol = location.protocol) {
-    console.log(protocol, host);
     // return `${protocol}//${prefix}${module}.${host}`;
     return `${protocol}//${host}`;
 }

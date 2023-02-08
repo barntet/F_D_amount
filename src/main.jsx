@@ -5,6 +5,7 @@ import 'lib-flexible/flexible';
 import './main.css';
 import 'zarm/dist/zarm.css';
 import App from './App';
+console.log(import.meta.env.MODE);
 ReactDOM.render(<React.StrictMode>
     <BrowserRouter>
       <App />
